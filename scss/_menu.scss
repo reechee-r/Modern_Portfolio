@@ -1,0 +1,44 @@
+//Menu Button
+
+.menu-btn {
+  position: absolute; //because we want to say exactly were it should be placed
+  z-index: 3; //to stay ontop of every item on the page
+  right: 335px; //to start 35px from the right of layout
+  top: 335px; //to start 35px from the top of the page layout
+  cursor: pointer; //to show a pointer when hovered ontop
+  @include easeOut; //transition mixin created in _config.scss
+
+
+  .btn-line {
+    width: 28px; //width of each btn line i.e the three menu lines
+    height: 3px; //height of each line so it would be visible
+    margin: 0 0 5px 0; //spacing between each lines
+    background: #fff; //line colors for visibility
+    @include easeOut; //transition mixin imported from _config.scss
+  }
+
+  //Rotate menu-btn lines into X symbol
+  &.close {
+    transform: rotate(180deg);
+
+    .btn-line {
+
+      //line 1 - Rotate
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); //rotates the first line and adjust it vertically
+      }
+
+      //line 2 - Hide
+      &:nth-child(2) {
+        opacity: 0; //makes the second line invisible
+      }
+
+      //line 3 - Rotate
+
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+
+  }
+}
